@@ -6,7 +6,7 @@ import styles from "./NavBar.module.css";
 
 export default function NavBar() {
   return (
-    <Navbar height={100} disableShadow>
+    <Navbar height={100} maxWidth="fluid" disableShadow>
       <Navbar.Toggle aria-label="Toggle navigation" showIn="sm" />
       <Navbar.Brand>
         <Link href="/">
