@@ -1,11 +1,8 @@
 import { Text, Grid, Image } from "@nextui-org/react";
 import styles from "../../styles/About.module.css";
 import Portrait from "../../assets/aboutportrait.jpg";
-import { useMediaQuery } from "../../hooks/useMediaQuery";
 
 export default function About() {
-  const isSm = useMediaQuery(650);
-
   return (
     <Grid.Container direction="row-reverse">
       <Grid xs={0} md={5}>
