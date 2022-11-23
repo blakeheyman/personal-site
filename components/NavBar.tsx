@@ -2,7 +2,7 @@ import { Link, Navbar, Spacer, Text } from "@nextui-org/react";
 import LinkedIn from "../assets/linkedin.svg";
 import GitHub from "../assets/github.svg";
 import Mail from "../assets/mail.svg";
-import styles from "./NavBar.module.css";
+import styles from "../styles/NavBar.module.css";
 
 export default function NavBar() {
   return (
