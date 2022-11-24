@@ -1,11 +1,13 @@
 import styles from "../styles/Home.module.css";
-import { Text, Spacer, Grid, Button, Link } from "@nextui-org/react";
-import HomePortrait from "../assets/homeportrait.svg";
+import { Text, Spacer, Grid, Button, Link, Image } from "@nextui-org/react";
+import HomePortrait from "../assets/homeportrait.png";
 
 export default function Home() {
   return (
     <div style={{ margin: 20 }}>
-      <Spacer y={2} />
+      <Grid xs={0} md={12}>
+        <Spacer y={4} />
+      </Grid>
       <Grid.Container gap={4} justify="center" alignItems="center">
         <Grid xs={12} md={4}>
           <div>
@@ -25,7 +27,10 @@ export default function Home() {
           </div>
         </Grid>
         <Grid xs={12} md={6}>
-          <HomePortrait />
+          <Image
+            src={HomePortrait.src}
+            alt="I’m a mobile developer based out of Boston, who intersects humility and empathy in coding."
+          />
         </Grid>
       </Grid.Container>
     </div>

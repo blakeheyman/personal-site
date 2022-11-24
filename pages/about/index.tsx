@@ -12,6 +12,7 @@ export default function About() {
           width="100%"
           height="calc(100vh - 100px)"
           css={{ objectPosition: "50% 30%" }}
+          alt="Portrait of Blake"
         />
       </Grid>
 
@@ -22,6 +23,7 @@ export default function About() {
           width="100%"
           height={400}
           css={{ objectPosition: "50% 30%" }}
+          alt="Portrait of Blake"
         />
       </Grid>
       <Grid xs={0} md={1} />
