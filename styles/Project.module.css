@@ -1,0 +1,30 @@
+.title {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 36px;
+}
+
+.subtitle {
+  font-family: "Inter";
+  font-style: italic;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 13px;
+}
+
+.caption {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 28px;
+}
+
+.buttonText {
+  font-family: "Inter";
+  font-style: normal;
+  font-size: 20px;
+  font-weight: 500;
+}
