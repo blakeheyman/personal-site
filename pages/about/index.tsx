@@ -16,18 +16,21 @@ export default function About() {
       <div className="flex flex-col flex-[2] p-16 lg:p-40">
         <h1 className="font-bold text-4xl mb-6">About Me</h1>
         <p className="font-normal text-xl leading-relaxed">
-          I am currently a senior at Northeastern University majoring in
-          computer science. My concentration is human-centered computing, and I
-          bring these humanistic values into the work I do.
+          I'm currently a web and mobile developer at Wellframe, where I've been
+          building tools that help people navigate their healthcare more easily
+          and effectively. I graduated from Northeastern University in 2023 with
+          a degree in computer science, concentrating in human-centered
+          computing, an approach I bring to work every day.
           <br />
           <br />
-          I am a problem-solver with a passion for coding as a form of
-          empowerment. I am drawn to opportunities that leverage mobile and web
-          technology to benefit people in need.
+          I'm a problem-solver at heart, and I see coding as a powerful way to
+          support and empower others. I'm especially passionate about creating
+          intuitive, accessible experiences through thoughtful design and
+          technology.
           <br />
           <br />
-          Outside of work, you’ll find me rock climbing, thrifting, or playing
-          Pokémon GO. I am always looking for new restaurants to try in Boston.
+          Outside of work, you'll usually find me baking, thrifting, or playing
+          on my 3DS. I also love exploring new restaurants around Boston.
         </p>
       </div>
     </div>
