@@ -1,78 +1,133 @@
-import { Link, Navbar, Spacer, Text } from "@nextui-org/react";
+import {
+  Navbar,
+  Link,
+  NavbarMenuToggle,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  NavbarMenu,
+  NavbarMenuItem,
+} from "@heroui/react";
 import LinkedIn from "../assets/linkedin.svg";
 import GitHub from "../assets/github.svg";
 import Mail from "../assets/mail.svg";
-import styles from "../styles/NavBar.module.css";
+import { JSX } from "react";
+import React from "react";
 
 export default function NavBar() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
   return (
-    <Navbar height={100} maxWidth="fluid" disableShadow>
-      <Navbar.Toggle aria-label="Toggle navigation" showIn="sm" />
-      <Navbar.Brand>
-        <Link href="/">
-          <Text color="primary" className={styles.brand}>
-            Blake Heyman
-          </Text>
-        </Link>
-      </Navbar.Brand>
+    <Navbar
+      maxWidth="xl"
+      isBordered
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen}
+    >
+      <NavbarContent className="sm:hidden">
+        <NavbarMenuToggle
+          aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+        />
+      </NavbarContent>
 
-      <Navbar.Content gap={100} hideIn="sm">
-        <Navbar.Link color="inherit" href="about">
-          <Text className={styles.tab}>About</Text>
-        </Navbar.Link>
-        <Navbar.Link color="inherit" href="projects">
-          <Text className={styles.tab}>Projects</Text>
-        </Navbar.Link>
-        <Navbar.Link color="inherit" href="resume">
-          <Text className={styles.tab}>Resume</Text>
-        </Navbar.Link>
-      </Navbar.Content>
+      <NavbarContent>
+        <NavbarBrand>
+          <Link href="/">
+            <h1 className="font-bold text-3xl text-primary">
+              Blake Heyman
+            </h1>
+          </Link>
+        </NavbarBrand>
+      </NavbarContent>
 
-      <Navbar.Content gap={45} hideIn="xs">
-        <Navbar.Link href="https://www.linkedin.com/in/blakeheyman/">
-          <LinkedIn />
-        </Navbar.Link>
-        <Navbar.Link href="https://github.com/blakeheyman">
-          <GitHub />
-        </Navbar.Link>
-        <Navbar.Link href="mailto:blake.heyman@gmail.com">
-          <Mail />
-        </Navbar.Link>
-      </Navbar.Content>
-      <Navbar.Content showIn="xs" />
+      {/* To align the brand to the center on smaller screens */}
+      <NavbarContent justify="end" className="sm:hidden" />
 
-      <Navbar.Collapse>
-        <Navbar.CollapseItem>
+      <NavbarContent justify="center" className="hidden sm:flex gap-20">
+        <NavbarItem>
+          <Link
+            href="/about"
+            className="text-inherit font-normal text-2xl"
+          >
+            About
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link
+            href="/projects"
+            className="text-inherit font-normal text-2xl"
+          >
+            Projects
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link
+            href="/resume"
+            className="text-inherit font-normal text-2xl"
+          >
+            Resume
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+
+      <NavbarContent justify="end" className="hidden lg:flex gap-8">
+        <NavbarItem>
+          <Link
+            href="https://www.linkedin.com/in/blakeheyman/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <LinkedIn />
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link
+            href="https://github.com/blakeheyman"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <GitHub />
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link href="mailto:blake.heyman@gmail.com">
+            <Mail />
+          </Link>
+        </NavbarItem>
+      </NavbarContent>
+
+      <NavbarMenu>
+        <NavbarMenuItem className="mb-2">
           <CollapseContent title="About" href="about" />
-        </Navbar.CollapseItem>
-        <Navbar.CollapseItem>
+        </NavbarMenuItem>
+        <NavbarMenuItem className="mb-2">
           <CollapseContent title="Projects" href="projects" />
-        </Navbar.CollapseItem>
-        <Navbar.CollapseItem>
+        </NavbarMenuItem>
+        <NavbarMenuItem className="mb-2">
           <CollapseContent title="Resume" href="resume" />
-        </Navbar.CollapseItem>
-        <Navbar.CollapseItem>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
           <CollapseContent
             icon={<LinkedIn />}
             title="LinkedIn"
             href="https://www.linkedin.com/in/blakeheyman/"
           />
-        </Navbar.CollapseItem>
-        <Navbar.CollapseItem>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
           <CollapseContent
             icon={<GitHub />}
             title="GitHub"
             href="https://github.com/blakeheyman"
           />
-        </Navbar.CollapseItem>
-        <Navbar.CollapseItem>
+        </NavbarMenuItem>
+        <NavbarMenuItem>
           <CollapseContent
             icon={<Mail />}
             title="Email"
             href="mailto:blake.heyman@gmail.com"
           />
-        </Navbar.CollapseItem>
-      </Navbar.Collapse>
+        </NavbarMenuItem>
+      </NavbarMenu>
     </Navbar>
   );
 }
@@ -86,13 +141,10 @@ type CollapseContentProps = {
 function CollapseContent(props: CollapseContentProps) {
   return (
     <Link href={props.href}>
-      {props.icon && (
-        <>
-          {props.icon}
-          <Spacer x={0.5} />
-        </>
-      )}
-      <Text className={styles.tab}>{props.title}</Text>
+      <a className="flex items-center font-normal text-2xl">
+        {props.icon && <span className="mr-2 ">{props.icon}</span>}
+        {props.title}
+      </a>
     </Link>
   );
 }

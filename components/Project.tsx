@@ -1,13 +1,12 @@
 import {
-  Button,
   Card,
-  Grid,
-  Text,
-  Image,
-  Spacer,
+  Button,
   Link,
-} from "@nextui-org/react";
-import styles from "../styles/Project.module.css";
+  Image,
+  CardFooter,
+  CardHeader,
+} from "@heroui/react";
+import { JSX } from "react";
 
 type ProjectProps = {
   imageSrc: string;
@@ -17,72 +16,38 @@ type ProjectProps = {
   buttonIcon: JSX.Element;
   buttonText: string;
   buttonHref: string;
+  className?: string;
 };
 
 export default function Project(props: ProjectProps) {
   return (
-    <Card css={{ w: "100%", h: "700px", dropShadow: "none", boxShadow: "$lg" }}>
-      <Card.Body css={{ p: 0 }}>
-        <Card.Image
-          src={props.imageSrc}
-          objectFit="cover"
-          width="100%"
-          height="100%"
-          css={{ objectPosition: "50% 0%" }}
-        />
-      </Card.Body>
-      <Card.Footer
-        css={{
-          bgBlur: "#000000aa",
-          position: "absolute",
-          borderTop: "$borderWeights$light solid rgba(255, 255, 255, 0.2)",
-          bottom: 0,
-        }}
-      >
-        <Grid.Container justify="center">
-          <Grid xs={11}>
-            <Text className={styles.title} color="white">
-              {props.title}
-            </Text>
-          </Grid>
-          <Grid xs={11}>
-            <Text className={styles.subtitle} color="primary">
-              {props.subtitle}
-            </Text>
-          </Grid>
-          <Grid xs={11}>
-            <Text className={styles.caption} color="white">
-              {props.caption}
-            </Text>
-          </Grid>
-          <Grid>
-            <Link href={props.buttonHref}>
-              <Button
-                auto
-                color="default"
-                icon={props.buttonIcon}
-                css={{ p: 25, background: "$white", mt: 30, mb: 20 }}
-              >
-                <Text className={styles.buttonText}>{props.buttonText}</Text>
-              </Button>
-            </Link>
-          </Grid>
-        </Grid.Container>
-      </Card.Footer>
-      {/* <Card.Footer css={{ justifyItems: "flex-start" }}>
-        <Row wrap="wrap" justify="space-between" align="center">
-          <Text b>Test</Text>
-          <Text
-            css={{
-              color: "$accents7",
-              fontWeight: "$semibold",
-              fontSize: "$sm",
-            }}
-          >
-            Test
-          </Text>
-        </Row>
-      </Card.Footer> */}
+    <Card
+      isFooterBlurred
+      className={`w-full h-[400px] lg:h-[600px] bg-black/80 ${props.className}`}
+    >
+      <CardHeader className="absolute z-11 top-1 flex-col items-start">
+        <h3 className="font-bold text-sm text-primary uppercase">
+          {props.subtitle}
+        </h3>
+        <h4 className="font-bold text-4xl text-white">{props.title}</h4>
+      </CardHeader>
+      <Image
+        src={props.imageSrc}
+        className="object-cover my-24 mx-16"
+        alt={props.title}
+        removeWrapper
+      />
+      <CardFooter className="absolute bg-black/70 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
+        <div className="flex flex-col grow">
+          <p className="font-medium text-lg text-white">{props.caption}</p>
+          <Link href={props.buttonHref} className="self-center mt-2">
+            <Button className="bg-white py-6">
+              {props.buttonIcon}
+              <span className="font-medium text-lg">{props.buttonText}</span>
+            </Button>
+          </Link>
+        </div>
+      </CardFooter>
     </Card>
   );
 }
