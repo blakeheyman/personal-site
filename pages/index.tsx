@@ -3,7 +3,7 @@ import HomePortrait from "../assets/homeportrait.png";
 
 export default function Home() {
   return (
-    <div className="flex flex-col md:flex-row gap-4 justify-center items-center m-8 md:m-24">
+    <div className="flex flex-col md:flex-row gap-4 justify-center items-center m-8">
       {/* Text block */}
       <div className="w-full md:w-1/3">
         <h1 className="font-bold text-6xl mb-2">Hi, I’m Blake</h1>

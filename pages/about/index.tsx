@@ -13,7 +13,7 @@ export default function About() {
       />
 
       {/* Text content */}
-      <div className="flex flex-col flex-[2] p-16 lg:p-40">
+      <div className="flex flex-col flex-2 p-16">
         <h1 className="font-bold text-4xl mb-6">About Me</h1>
         <p className="font-normal text-xl leading-relaxed">
           {
