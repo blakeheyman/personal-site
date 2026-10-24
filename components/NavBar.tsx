@@ -74,8 +74,8 @@ export default function NavBar() {
         <NavbarItem>
           <Link
             href="https://www.linkedin.com/in/blakeheyman/"
-            target="_blank"
-            rel="noopener noreferrer"
+            isExternal
+            aria-label="LinkedIn"
           >
             <LinkedIn />
           </Link>
@@ -83,14 +83,14 @@ export default function NavBar() {
         <NavbarItem>
           <Link
             href="https://github.com/blakeheyman"
-            target="_blank"
-            rel="noopener noreferrer"
+            isExternal
+            aria-label="GitHub"
           >
             <GitHub />
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="mailto:blake.heyman@gmail.com">
+          <Link href="mailto:blake.heyman@gmail.com" aria-label="Email">
             <Mail />
           </Link>
         </NavbarItem>
@@ -98,13 +98,13 @@ export default function NavBar() {
 
       <NavbarMenu>
         <NavbarMenuItem className="mb-2">
-          <CollapseContent title="About" href="about" />
+          <CollapseContent title="About" href="/about" />
         </NavbarMenuItem>
         <NavbarMenuItem className="mb-2">
-          <CollapseContent title="Projects" href="projects" />
+          <CollapseContent title="Projects" href="/projects" />
         </NavbarMenuItem>
         <NavbarMenuItem className="mb-2">
-          <CollapseContent title="Resume" href="resume" />
+          <CollapseContent title="Resume" href="/resume" />
         </NavbarMenuItem>
         <NavbarMenuItem>
           <CollapseContent
@@ -139,12 +139,16 @@ type CollapseContentProps = {
 };
 
 function CollapseContent(props: CollapseContentProps) {
+  const isExternal = props.href.startsWith("http");
+
   return (
-    <Link href={props.href}>
-      <a className="flex items-center font-normal text-2xl">
-        {props.icon && <span className="mr-2 ">{props.icon}</span>}
-        {props.title}
-      </a>
+    <Link
+      href={props.href}
+      className="flex items-center font-normal text-2xl"
+      isExternal={isExternal}
+    >
+      {props.icon && <span className="mr-2">{props.icon}</span>}
+      {props.title}
     </Link>
   );
 }

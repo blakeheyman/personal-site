@@ -10,14 +10,15 @@ export default function Home() {
         <h2 className="font-medium text-6xl text-primary mb-6">
           Mobile Developer
         </h2>
-        <Link href="mailto:blake.heyman@gmail.com">
-          <Button
-            size="lg"
-            className="bg-black text-white font-medium text-3xl px-16 py-8"
-          >
-            Contact
-          </Button>
-        </Link>
+        <Button
+          as={Link}
+          href="mailto:blake.heyman@gmail.com"
+          size="lg"
+          color="primary"
+          className="font-medium text-3xl px-16 py-8"
+        >
+          Contact
+        </Button>
       </div>
 
       {/* Image */}

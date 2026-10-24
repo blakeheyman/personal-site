@@ -40,12 +40,16 @@ export default function Project(props: ProjectProps) {
       <CardFooter className="absolute bg-black/70 bottom-0 z-10 border-t-1 border-default-600 dark:border-default-100">
         <div className="flex flex-col grow">
           <p className="font-medium text-lg text-white">{props.caption}</p>
-          <Link href={props.buttonHref} className="self-center mt-2">
-            <Button className="bg-white py-6">
-              {props.buttonIcon}
-              <span className="font-medium text-lg">{props.buttonText}</span>
-            </Button>
-          </Link>
+          <Button
+            as={Link}
+            href={props.buttonHref}
+            isExternal
+            color="default"
+            className="self-center mt-2 py-6"
+          >
+            {props.buttonIcon}
+            <span className="font-medium text-lg">{props.buttonText}</span>
+          </Button>
         </div>
       </CardFooter>
     </Card>
